@@ -1,0 +1,42 @@
+import streamlit as st
+
+st.set_page_config(page_title="KBO 응원가 가이드", page_icon="\ud83c\udfb6", layout="centered")
+
+st.title("KBO 프로팀 대표 응원가 모음집 \ud83c\udfba")
+
+st.markdown("""
+야구장은 못 가도, 마음은 이미 직관 중!<br>
+KBO 10개 구단의 대표 응원가를 확인해보세요 🎺⚾
+""", unsafe_allow_html=True)
+
+team = st.selectbox("응원가가 궁금한 팀을 골라보세요 👇", [
+    "LG 트윈스 🔴⚫️", "KT 위즈 🧢", "SSG 랜더스 🚗", "NC 다이노스 🦖", "키움 히어로즈 🛡️", 
+    "두산 베어스 🐻", "KIA 타이거즈 🐯", "한화 이글스 🦅", "삼성 라이온즈 🦁", "롯데 자이언츠 ⚓"
+])
+
+clean_team = team.split()[0]  # 이모지 제거용
+
+cheer_songs = {
+    "LG": "\ud83c\udfb6 \"You are my LG~ 날려버려 LG~ 승리를 위하여~\"",
+    "KT": "\ud83c\udfb6 \"We are KT~ Together we stand!\"",
+    "SSG": "\ud83c\udfb6 \"랜~더스! 인천의 자부심!\"",
+    "NC": "\ud83c\udfb6 \"NC! NC 다이노스! 승리를 향해~\"",
+    "키움": "\ud83c\udfb6 \"히어로즈! 전진하라 히어로즈~\"",
+    "두산": "\ud83c\udfb6 \"두-산! 두-산! 베어스~ 베어스~\"",
+    "KIA": "\ud83c\udfb6 \"타! 타! 타! 타이거즈!\"",
+    "한화": "\ud83c\udfb6 \"한! 한! 화! 한화 이글스!\"",
+    "삼성": "\ud83c\udfb6 \"삼! 성! 라이온즈! 가자 승리로!\"",
+    "롯데": "\ud83c\udfb6 \"부산 갈매기~ 롯데 자이언츠~ 승리를 위하여~\""
+}
+
+st.markdown("---")
+
+st.subheader(f"\ud83d\udd25 {clean_team} 대표 응원가")
+st.markdown(cheer_songs.get(clean_team, "\ud83c\udfb5 준비 중입니다. 잠시만 기다려주세요!"))
+
+if st.button("이 응원가 따라 부르기 🎤"):
+    st.toast("\u2728 열정적인 팬이군요! 야구장 분위기 제대로 낼 준비 되셨나요? \u2728")
+    st.balloons()
+
+st.markdown("---")
+st.caption("Made with \u2665\ufe0f for 야구팬들 by Streamlit")
