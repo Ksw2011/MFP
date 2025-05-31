@@ -1,4 +1,11 @@
- **최애팀**을 찾아줄 입덕 가이드가 여기에! ✨
+import streamlit as st
+
+st.set_page_config(page_title="KBO 입덕 가이드", page_icon="🌟", layout="centered")
+
+st.title("KBO 프로투밍 입덕 가이드 🚀")
+st.markdown("""
+야구는 몰라도 좋아! ⚾️<br>
+당신의 **최애팀**을 찾아줄 입덕 가이드가 여기에! ✨
 """, unsafe_allow_html=True)
 
 team = st.selectbox("좋아하는 팀을 선택하세요 🌟", [
