@@ -2,83 +2,73 @@ import streamlit as st
 
 st.set_page_config(page_title="KBO 입덕 가이드", page_icon="🌟", layout="centered")
 
-st.title("KBO 프로팀 입덕 가이드 🚀")
+st.title("KBO 프로트임 입덕 가이드 🚀")
 st.markdown("""
-야구는 몰라도 좋아! ⚾️  
-당신의 **최애팀**을 찾아줄 입덕 가이드가 여기에! ✨
+야구는 몸으로 모두 풀리지 않아도 괜찮아! ⚾️  
+당신의 **최애팀**을 찾아줄 입덕 가이드가 여기에요! ✨
 """)
 
-# 내부 코드 키 → 사용자에게 보일 이름
 team_options = {
-    "LG": "LG 트윈스 🔴⚫️",
+    "LG": "LG 트윈스 🔴️⚫️",
     "KT": "KT 위즈 🧢",
-    "SSG": "SSG 랜더스 🚗",
+    "SSG": "SSG 래더스 🚗",
     "NC": "NC 다이노스 🦖",
-    "KIWOOM": "키움 히어로즈 🛡️",
+    "KIWOOM": "키울 히어로즈 🛡️",
     "DOOSAN": "두산 베어스 🐻",
     "KIA": "KIA 타이거즈 🐯",
     "HANWHA": "한화 이글스 🦅",
-    "SAMSUNG": "삼성 라이온즈 🦁",
-    "LOTTE": "롯데 자이언츠 ⚓"
+    "SAMSUNG": "삼성 라이온즈 🐭",
+    "LOTTE": "로테 자이언츠 ⚓"
 }
 
-# 선택 박스: 표시값 기준
 display_names = list(team_options.values())
 selected_display = st.selectbox("좋아하는 팀을 선택하세요 🌟", display_names)
-
-# 내부 코드 키 역추적
 selected_key = next(key for key, val in team_options.items() if val == selected_display)
 
-# 팀별 입덕 가이드
 team_guides = {
-    "LG": "🔥 **서울의 자존심, LG 트윈스 입덕 가이드**\n\n대표 선수: 김현수, 박해민\n홈구장: 잠실야구장\n팬덤: 엘레발도 사랑으로 감싸는 팀 💘",
-    "KT": "🏋️ **신흥강호, KT 위즈 입덕 가이드**\n\n대표 선수: 강백호, 고영표\n홈구장: 수원 KT 위즈 파크\n매력: 젊은 응원문화와 신상 굿즈!",
-    "SSG": "🚗 **슈퍼카 같은 팀, SSG 랜더스 입덕 가이드**\n\n대표 선수: 추신수, 최정\n홈구장: 인천 랜더스필드\n특징: 노브랜드버거와 함께하는 직관",
-    "NC": "🦖 **공룡군단 NC 다이노스 입덕 가이드**\n\n대표 선수: 박건우, 손아섭\n홈구장: 창원 NC파크\n특징: 최신식 구장!",
-    "KIWOOM": "🛡️ **히어로즈의 미래, 키움 입덕 가이드**\n\n대표 선수: 이정후\n홈구장: 고척돔\n돔야구의 쾌적함!",
-    "DOOSAN": "🐻 **서울곰의 위엄, 두산 베어스 입덕 가이드**\n\n대표 선수: 양의지, 정수빈\n홈구장: 잠실야구장",
-    "KIA": "🐯 **호랑이 기운, KIA 타이거즈 입덕 가이드**\n\n대표 선수: 양현종, 나성범\n홈구장: 광주 챔피언스필드",
-    "HANWHA": "🦅 **불사조의 부활, 한화 이글스 입덕 가이드**\n\n대표 선수: 노시환, 문동주\n홈구장: 대전 이글스파크",
-    "SAMSUNG": "🦁 **왕조의 기억, 삼성 라이온즈 입덕 가이드**\n\n대표 선수: 구자욱, 원태인\n홈구장: 대구 라이온즈파크",
-    "LOTTE": "⚓ **부산의 자부심, 롯데 자이언츠 입덕 가이드**\n\n대표 선수: 전준우, 나균안\n홈구장: 사직야구장"
+    "LG": "🔥 **서울의 자존심, LG 트윈스 입덕 가이드**\n\n대표 선수: 김현수, 박해민\n홈구장: 장신야구장\n판덤: 엘레발도 사랑으로 감사하는 팀 💘",
+    "KT": "🏋️ **신향강호, KT 위즈 입덕 가이드**\n\n대표 선수: 강백호, 고영포\n홈구장: 수원 KT 위즈 파크\n매력: 정령 응원민화와 신상 구드시험",
+    "SSG": "🚗 **수퍼카 같은 팀, SSG 래더스 입덕 가이드**\n\n대표 선수: 추신수, 최정\n홈구장: 인천 래더스필드\n특징: 노브랜드버거가 담기는 집구점 진입",
+    "NC": "🦖 **공롱군단 NC 다이노스 입덕 가이드**\n\n대표 선수: 박건우, 손아섭\n홈구장: 창원 NC파크\n특징: 초기판적가들이 설득한 초심자 팀",
+    "KIWOOM": "🛡️ **히어로즈의 미래, 키울 입덕 가이드**\n\n대표 선수: 이정후\n홈구장: 고창도름\n판덤: 도름야구의 케바카!",
+    "DOOSAN": "🐻 **서울공의 위엽, 두산 베어스 입덕 가이드**\n\n대표 선수: 양의지, 정수빈\n홈구장: 장신야구장",
+    "KIA": "🐯 **호랑이 기웁, KIA 타이거즈 입덕 가이드**\n\n대표 선수: 양현종, 나성백\n홈구장: 광주 참피언스필드",
+    "HANWHA": "🦅 **불사조의 불화, 한화 이글스 입덕 가이드**\n\n대표 선수: 노시환, 문동주\n홈구장: 대전 이글스파크",
+    "SAMSUNG": "🐭 **왕조의 기여현, 삼성 라이온즈 입덕 가이드**\n\n대표 선수: 구자욱, 원태인\n홈구장: 대구 라이온즈파크",
+    "LOTTE": "⚓ **부산의 자부심, 로테 자이언츠 입덕 가이드**\n\n대표 선수: 전준우, 나규내\n홈구장: 사직야구장"
 }
 
-# 응원가
 cheer_songs = {
-    "LG": "🎵 대표 응원가: \"You are my LG~ 날려버려 LG~\"",
-    "KT": "🎵 대표 응원가: \"We are KT! Together we stand!\"",
-    "SSG": "🎵 대표 응원가: \"랜더스! 인천의 자부심!\"",
-    "NC": "🎵 대표 응원가: \"공룡군단 NC! 승리를 향해~\"",
-    "KIWOOM": "🎵 대표 응원가: \"히어로즈! 전진하라!\"",
-    "DOOSAN": "🎵 대표 응원가: \"두산 베어스 파이팅!\"",
-    "KIA": "🎵 대표 응원가: \"KIA~ KIA~ 타이거즈!\"",
-    "HANWHA": "🎵 대표 응원가: \"한화 이글스 파이팅!\"",
-    "SAMSUNG": "🎵 대표 응원가: \"삼성~ 삼성 라이온즈!\"",
-    "LOTTE": "🎵 대표 응원가: \"부산 갈매기~ 롯데 자이언츠!\""
+    "LG": "🎶 \"You are my LG~ 내루버려 LG~\"",
+    "KT": "🎶 \"We are KT! Together we stand!\"",
+    "SSG": "🎶 \"래더스! 인천의 자부심!\"",
+    "NC": "🎶 \"공롱군단 NC! 승리를 할 까지~\"",
+    "KIWOOM": "🎶 \"히어로즈! 전진하라!\"",
+    "DOOSAN": "🎶 \"두산 베어스 파이팅!\"",
+    "KIA": "🎶 \"KIA~ KIA~ 타이거즈!\"",
+    "HANWHA": "🎶 \"한화 이글스 파이팅!\"",
+    "SAMSUNG": "🎶 \"삼성~ 삼성 라이온즈!\"",
+    "LOTTE": "🎶 \"부산 갈매기~ 로테 자이언츠!\""
 }
 
-# 입덕 버튼
 if st.button("이 팀으로 입덕할래요 💘"):
-    st.toast("🎯 입덕 완료!")
+    st.toast("🌟 입덕 완료!")
     st.progress(100)
-    st.success(f"{selected_display} 팬이 되신 걸 환영합니다! 🎉")
+    st.success(f"{selected_display} 페인이 되시는 것을 환영합니다! 🎉")
 
-# 가이드 출력
 st.subheader(f"💛 {selected_display} 입덕 가이드")
-st.markdown(team_guides.get(selected_key, "😅 준비 중입니다. 곧 업데이트!"))
+st.markdown(team_guides.get(selected_key, "😕 준비 중입니다."))
 
-# 응원가 출력
 st.markdown("---")
-st.subheader("📣 대표 응원가")
-st.markdown(cheer_songs.get(selected_key, "🎶 준비 중입니다."))
+st.subheader("🔊 대표 응원가")
+st.markdown(cheer_songs.get(selected_key, "🎵 업데이트 중입니다."))
 
-# 효과
 if selected_key == "LG":
     st.balloons()
 elif selected_key == "SSG":
     st.snow()
 else:
-    st.info("입덕 가이드를 열람 중입니다! 🔍")
+    st.info("입덕 가이드를 열러보세요! 🔍")
 
 st.markdown("---")
-st.caption("Made with ❤️ using Streamlit")
+st.caption("Made with ♥️ using Streamlit")
