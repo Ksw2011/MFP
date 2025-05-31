@@ -1,5 +1,6 @@
 import streamlit as st
-
+import folium
+from streamlit_folium import st_folium
 # 여행지 데이터 (Top 10)
 destinations = [
     {"name": "Maui, Hawaii", "lat": 20.7984, "lon": -156.3319, "desc": "🌺 파도와 야자수의 천국"},
