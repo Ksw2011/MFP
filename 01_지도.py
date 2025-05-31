@@ -1,6 +1,4 @@
 import streamlit as st
-import folium
-from streamlit_folium import st_folium
 
 # 여행지 데이터 (Top 10)
 destinations = [
