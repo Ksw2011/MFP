@@ -2,3 +2,41 @@ plotly
 folium
 koreanize_matplotlib
 streamlit-folium
+import streamlit as st
+import plotly.graph_objs as go
+import pandas as pd
+
+st.set_page_config(page_title="Top 10 시가총액 기업", layout="wide")
+
+data = {
+    "Company": [
+        "Apple", "Microsoft", "Saudi Aramco", "Alphabet", "Amazon",
+        "Nvidia", "Berkshire Hathaway", "Meta", "Tesla", "TSMC"
+    ],
+    "2022": [2.9, 2.5, 2.3, 1.8, 1.6, 0.5, 0.7, 0.9, 0.9, 0.6],
+    "2023": [2.8, 2.6, 2.2, 1.9, 1.4, 1.0, 0.8, 1.1, 0.7, 0.7],
+    "2024": [3.0, 2.9, 2.1, 2.0, 1.7, 2.3, 0.9, 1.3, 0.6, 0.75]
+}
+
+df = pd.DataFrame(data)
+df_melted = df.melt(id_vars="Company", var_name="Year", value_name="MarketCap")
+
+fig = go.Figure()
+for company in df["Company"]:
+    company_data = df_melted[df_melted["Company"] == company]
+    fig.add_trace(go.Scatter(
+        x=company_data["Year"],
+        y=company_data["MarketCap"],
+        mode="lines+markers",
+        name=company
+    ))
+
+fig.update_layout(
+    title="📈 글로벌 시가총액 Top 10 기업의 최근 3년 변화",
+    xaxis_title="연도",
+    yaxis_title="시가총액 (조 달러)",
+    hovermode="x unified"
+)
+
+st.title("🌍 전 세계 시가총액 Top 10 기업 변화")
+st.plotly_chart(fig, use_container_width=True)
